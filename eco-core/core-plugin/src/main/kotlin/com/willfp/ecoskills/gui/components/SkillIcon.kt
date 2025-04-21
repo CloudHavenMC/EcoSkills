@@ -69,7 +69,7 @@ class SkillIcon(
 
     override val isEnabled = config.getBoolOrNull("enabled") ?: true
     override val row = config.getInt("position.row")
-    override val column = config.getInt("position.column")
+    override var column = config.getInt("position.column")
 
     override fun getSlotAt(row: Int, column: Int, player: Player, menu: Menu): Slot {
         return if (player.getSkillLevel(skill) > 0 || !skill.isHiddenBeforeLevel1) {

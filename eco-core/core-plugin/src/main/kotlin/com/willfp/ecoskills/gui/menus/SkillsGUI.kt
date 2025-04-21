@@ -39,6 +39,12 @@ object SkillsGUI {
 
             for (skill in Skills.values()) {
                 addComponent(skill.icon)
+
+                skill.icon.column++;
+                addComponent(skill.icon)
+
+                skill.icon.column++;
+                addComponent(skill.icon)
             }
 
 //            addComponent(
