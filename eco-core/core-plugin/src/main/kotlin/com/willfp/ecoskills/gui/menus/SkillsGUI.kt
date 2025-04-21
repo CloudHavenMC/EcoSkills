@@ -6,7 +6,7 @@ import com.willfp.eco.core.gui.menu.Menu
 import com.willfp.eco.core.gui.slot.ConfigSlot
 import com.willfp.eco.core.gui.slot.FillerMask
 import com.willfp.eco.core.gui.slot.MaskItems
-import com.willfp.ecoskills.gui.components.CloseButton
+//import com.willfp.ecoskills.gui.components.CloseButton
 import com.willfp.ecoskills.gui.components.PlayerInfoIcon
 import com.willfp.ecoskills.gui.components.addComponent
 import com.willfp.ecoskills.skills.Skills
@@ -41,11 +41,11 @@ object SkillsGUI {
                 addComponent(skill.icon)
             }
 
-            addComponent(
-                CloseButton(
-                    plugin.configYml.getSubsection("gui.close")
-                )
-            )
+//            addComponent(
+//                CloseButton(
+//                    plugin.configYml.getSubsection("gui.close")
+//                )
+//            )
 
             for (config in plugin.configYml.getSubsections("gui.custom-slots")) {
                 setSlot(
