@@ -81,6 +81,8 @@ class EcoSkillsPlugin : LibreforgePlugin() {
         Triggers.register(TriggerGainSkillXp)
         Triggers.register(TriggerLevelUpSkill)
         Triggers.register(TriggerRegenMagic)
+        Triggers.register(TriggerForestBlockBreak)
+        Triggers.register(TriggerMirageBlockBreak)
         Filters.register(FilterSkill)
         Filters.register(FilterSkillCrit)
         Filters.register(FilterMagicType)

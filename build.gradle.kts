@@ -41,6 +41,7 @@ allprojects {
         compileOnly("com.willfp:eco:6.75.0")
         compileOnly("org.jetbrains:annotations:23.0.0")
         compileOnly("org.jetbrains.kotlin:kotlin-stdlib:2.1.0")
+        compileOnly("gg.cloudhaven:HavenSuite:1.0-SNAPSHOT")
     }
 
     java {
