@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     java
     `java-library`
@@ -16,9 +18,21 @@ base {
 }
 
 dependencies {
-    project(":eco-core").dependencyProject.subprojects {
-        implementation(this)
-    }
+    implementation(project(":eco-core:core-plugin"))
+    implementation(project(":eco-core:core-nms:v1_17_R1"))
+    implementation(project(":eco-core:core-nms:v1_18_R1"))
+    implementation(project(":eco-core:core-nms:v1_18_R2"))
+    implementation(project(":eco-core:core-nms:v1_19_R1"))
+    implementation(project(":eco-core:core-nms:v1_19_R2"))
+    implementation(project(":eco-core:core-nms:v1_19_R3"))
+    implementation(project(":eco-core:core-nms:v1_20_R1"))
+    implementation(project(":eco-core:core-nms:v1_20_R2"))
+    implementation(project(":eco-core:core-nms:v1_20_R3"))
+    implementation(project(":eco-core:core-nms:v1_21"))
+    implementation(project(":eco-core:core-nms:v1_21_3"))
+    implementation(project(":eco-core:core-nms:v1_21_4"))
+    implementation(project(":eco-core:core-nms:v1_21_5"))
+    implementation(project(":eco-core:core-nms:v1_21_7"))
 }
 
 allprojects {
@@ -56,8 +70,8 @@ allprojects {
         }
 
         compileKotlin {
-            kotlinOptions {
-                jvmTarget = "17"
+            compilerOptions {
+                jvmTarget = JvmTarget.JVM_17
             }
         }
 
