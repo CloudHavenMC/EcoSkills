@@ -6,7 +6,9 @@ version = rootProject.version
 val spigotVersion = "1.21.6-R0.1-SNAPSHOT"
 
 dependencies {
-    compileOnly("org.spigotmc:spigot:$spigotVersion")
+    compileOnly("org.spigotmc:spigot:$spigotVersion") {
+        exclude(group = "io.netty")
+    }
 }
 
 configurations.compileOnly {
