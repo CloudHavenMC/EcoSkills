@@ -14,6 +14,12 @@ import com.willfp.eco.util.evaluateExpression
 import com.willfp.eco.util.formatEco
 import com.willfp.eco.util.toNiceString
 import com.willfp.eco.util.toNumeral
+import com.willfp.ecoskills.api.getSkillLevel
+import com.willfp.ecoskills.effects.Effects
+import com.willfp.ecoskills.effects.effects
+import com.willfp.ecoskills.skills.Skills
+import com.willfp.ecoskills.stats.Stats
+import com.willfp.ecoskills.stats.stats
 import com.willfp.ecoskills.util.LeaderboardEntry
 import com.willfp.ecoskills.util.LevelInjectable
 import com.willfp.ecoskills.util.loadDescriptionPlaceholders
@@ -121,6 +127,23 @@ abstract class Levellable(
             }
 
             desc.formatEco(context)
+        }
+    }
+}
+
+fun OfflinePlayer.recount() {
+    for (stat in Stats.values()) {
+        this.stats.reset(stat)
+    }
+    for (effect in Effects.values()) {
+        this.effects.reset(effect)
+    }
+    for (skill in Skills.values()) {
+        val level = this.getSkillLevel(skill)
+        if (level > 0) {
+            for (i in (0 until level)) {
+                skill.giveRewards(this, i)
+            }
         }
     }
 }

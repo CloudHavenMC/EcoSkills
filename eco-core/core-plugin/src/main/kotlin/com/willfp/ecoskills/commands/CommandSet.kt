@@ -9,6 +9,7 @@ import com.willfp.ecoskills.api.setBaseStatLevel
 import com.willfp.ecoskills.api.setSkillLevel
 import com.willfp.ecoskills.effects.Effects
 import com.willfp.ecoskills.effects.effects
+import com.willfp.ecoskills.recount
 import com.willfp.ecoskills.skills.Skill
 import com.willfp.ecoskills.skills.Skills
 import com.willfp.ecoskills.stats.Stat
@@ -39,11 +40,13 @@ class CommandSet(plugin: EcoPlugin) :
         val key = when (obj) {
             is Skill -> {
                 player.setSkillLevel(obj, amount)
+                player.recount()
                 "set-skill-level"
             }
 
             is Stat -> {
                 player.setBaseStatLevel(obj, amount)
+                player.recount()
                 "set-stat"
             }
 

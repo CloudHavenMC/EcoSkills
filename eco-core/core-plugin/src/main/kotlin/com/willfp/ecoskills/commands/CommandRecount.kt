@@ -8,6 +8,7 @@ import com.willfp.ecoskills.api.giveSkillXP
 import com.willfp.ecoskills.api.setSkillLevel
 import com.willfp.ecoskills.effects.Effects
 import com.willfp.ecoskills.effects.effects
+import com.willfp.ecoskills.recount
 import com.willfp.ecoskills.skills.Skills
 import com.willfp.ecoskills.stats.Stats
 import com.willfp.ecoskills.stats.stats
@@ -32,20 +33,7 @@ class CommandRecount(plugin: EcoPlugin) :
         }
 
         for (player in players) {
-            for (stat in Stats.values()) {
-                player.stats.reset(stat)
-            }
-            for (effect in Effects.values()) {
-                player.effects.reset(effect)
-            }
-            for (skill in Skills.values()) {
-                val level = player.getSkillLevel(skill)
-                if (level > 0) {
-                    for (i in (0 until level)) {
-                        skill.giveRewards(player, i)
-                    }
-                }
-            }
+            player.recount()
         }
 
         if (players.size > 1) {
